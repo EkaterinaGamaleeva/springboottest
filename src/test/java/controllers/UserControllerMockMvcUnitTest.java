@@ -43,7 +43,7 @@ public class UserControllerMockMvcUnitTest {
     @MockBean
     private UsersService service;
     @Test
-    public void getUser_ReturnsJsonNotInfo()  throws Exception {
+    public void getUser_ReturnsJsonNotInfoOrder()  throws Exception {
         var user = new User(9, "КАТЯ", 18, "gamaleec.00@mail.ru", (List.of( new Order(2,"hvjhvjhv", Status.EXPECTED,41564,controller.getUsersById(9)))),"hbjhbjh");
         List<User> users= new ArrayList<>();
         users.add(user);
@@ -54,6 +54,19 @@ public class UserControllerMockMvcUnitTest {
                 .andExpect(jsonPath("$.fullName").value(user.getFullName()))
                 .andExpect(jsonPath("$.age").value(user.getAge()))
                 .andExpect( jsonPath("$.orders").value(user.getOrders()))
+                .andReturn();
+    }
+    @Test
+    public void getUsersById_whenGetExistingPerson_thenStatus200andUserReturned() throws Exception {
+        var user = new User(9, "КАТЯ", 18, "gamaleec.00@mail.ru", (List.of( new Order(2,"hvjhvjhv", Status.EXPECTED,41564,controller.getUsersById(9)))),"hbjhbjh");
+        Mockito.when(this.service.findOne(9)).thenReturn(user);
+        mockMvc.perform(get("/users/9"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(user.getId()))
+                .andExpect(jsonPath("$.fullName").value(user.getFullName()))
+                .andExpect(jsonPath("$.age").value(user.getAge()))
+                .andExpect( jsonPath("$.orders").value(user.getOrders()))
+                .andExpect( jsonPath("$.infoOrder").value(user.getInfoOrder()))
                 .andReturn();
     }
 

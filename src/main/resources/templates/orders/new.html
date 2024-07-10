@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New order</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/orders" th:object="${order}">
+    <label for="title">Введите название товара: </label>
+    <input type="text" th:field="*{title}" id="title"/>
+    <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</div>
+    <br/>
+    <label for="sum">Введите сумму: </label>
+    <input type="number" th:field="*{sum}" id="sum"/>
+    <div style="color:red" th:if="${#fields.hasErrors('sum')}" th:errors="*{sum}">Sum Error</div>
+    <br/>
+    <label for="status">Введите статус заказа: </label>
+    <input type="text" th:field="*{status}" id="status"/>
+    <div style="color:red" th:if="${#fields.hasErrors('status')}" th:errors="*{status}">Status Error</div>
+    <br/>
+    <input type="submit" value="Создать!"/>
+</form>
+
+</body>
+</html>
