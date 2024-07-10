@@ -1,11 +1,10 @@
-package com.springboottest.springboottest.controllers;
+package controllers;
 
-import com.springboottest.springboottest.models.Order;
-import com.springboottest.springboottest.models.Status;
-import com.springboottest.springboottest.models.User;
-import com.springboottest.springboottest.repositories.UsersRepository;
-import com.springboottest.springboottest.services.UsersService;
-import com.springboottest.springboottest.util.UserValidator;
+import models.Order;
+import models.Status;
+import models.User;
+import repositories.UsersRepository;
+import services.UsersService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -13,13 +12,11 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
 

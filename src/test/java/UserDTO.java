@@ -1,13 +1,4 @@
-package com.springboottest.springboottest;
-
-import com.fasterxml.jackson.annotation.JsonView;
-import com.springboottest.springboottest.models.Order;
-import com.springboottest.springboottest.util.View;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+import models.Order;
 
 import java.util.ArrayList;
 import java.util.List;

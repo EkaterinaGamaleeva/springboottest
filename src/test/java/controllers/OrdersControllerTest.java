@@ -1,11 +1,10 @@
-package com.springboottest.springboottest.controllers;
+package controllers;
 
-import com.springboottest.springboottest.models.Order;
-import com.springboottest.springboottest.models.Status;
-import com.springboottest.springboottest.models.User;
-import com.springboottest.springboottest.repositories.OrdersRepository;
-import com.springboottest.springboottest.services.OrdersService;
-import com.springboottest.springboottest.services.UsersService;
+import models.Order;
+import models.Status;
+import repositories.OrdersRepository;
+import services.OrdersService;
+import services.UsersService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
